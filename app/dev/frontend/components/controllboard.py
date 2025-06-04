@@ -23,7 +23,19 @@ Time-Series Plots: Track input parameters (e.g., soil moisture) over a growing s
 """
 
 
-
+def metricCard(title, value):
+    return html.Div(children=[
+    html.H3(children=f"{title}"),
+    html.H1(children=f"{value}")
+],
+style=dict(
+    color="gray",
+    padding="10px",
+    backgroundColor="white",
+    borderRadius="5px",
+    textAlign="center"
+)
+)
 
 class DisplayGraph:
     processData: None | list
@@ -43,9 +55,25 @@ class DisplayGraph:
         
         return [
             html.Div(
-                children=[cardOne(figure=message).output()], 
+                children=[
+                    cardOne(figure=message).output(),
+                    html.Div(children=[
+                        metricCard(title="Yield", value="--"),
+                        metricCard(title="Soil Health", value="--"),
+                        metricCard(title="Environmental Health", value="--"),
+
+                    ],
+                    style={
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "justifyContent": "space-around"
+                    }
+                    )
+                    ], 
             style={
-            "display": "block",
+            "display": "grid",
+            "gap": 8,
+            "gridTemplateColumns": "80% 18%",
             "width": "100%",
             "margin": "2px"
 
@@ -76,12 +104,30 @@ class DisplayGraph:
         inference = inferenceSpaceForAllParameter.performOperation()
 
         return [
-            html.Div(
-                children=[cardOne(figure=inference, active=True).output()], 
+                html.Div(
+                children=[
+                    cardOne(figure=inference[0], active=True).output(),
+                    html.Div(children=[
+                        metricCard(title="Yield", value="--"),
+                        metricCard(title="Soil Health", value="--"),
+                        metricCard(title="Environmental Health", value="--"),
+
+                    ],
+                    style={
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "justifyContent": "space-around"
+                    }
+                    )
+                    ], 
             style={
-            "display": "block",
+            "display": "grid",
+            "gap": 8,
+            "gridTemplateColumns": "80% 18%",
             "width": "100%",
             "margin": "2px"
+
+            
             }),
             html.Div(children=[
                 cardTwo(figure=inference[1], active=True).output(),
@@ -90,8 +136,9 @@ class DisplayGraph:
                 cardTwo(figure=inference[4], active=True).output(), 
                 cardTwo(figure=inference[5], active=True).output(), 
                 cardTwo(figure=inference[6], active=True).output(),
-                cardTwo(figure=inference).output(),
-                cardTwo(figure=inference).output()
+                cardTwo(figure=inference[7], active=True).output(), # 3d
+                cardTwo(figure=inference[8], active=True).output(), # 3d
+
             ], style={
                 "display": "grid",
                 "gap": 8,
@@ -116,6 +163,3 @@ controllboard = html.Div(
 )
 
 # should contain a row with two column in a row. c1 contains a single container. 
-
-
-

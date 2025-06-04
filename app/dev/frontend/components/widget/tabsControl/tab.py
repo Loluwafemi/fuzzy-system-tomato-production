@@ -210,7 +210,8 @@ style={
     "borderRadius": '4px',
     "margin": "8px",
     "padding": "10px",
-    "gap": "6px"
+    "gap": "6px",
+    
 }
 )
 

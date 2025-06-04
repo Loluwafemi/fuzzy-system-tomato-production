@@ -3,16 +3,16 @@ from dev.frontend.components.leftComponent import leftcomponent
 from dev.frontend.components.righComponent import rightcomponent
 from dash import Dash, html
 from dev.frontend.style import layoutStyle
+import dash
 
 # render all components here
-dashboard = Dash(__name__)
+
+dashboard = Dash()
 
 
 # Requires Dash 2.17.0 or later
 
-dashboard.title = 'Tomato Production Fuzzy Base System'
-
-dashboard.layout = html.Div(
+dashboard = html.Div(
     style=layoutStyle,
     children=[
     leftcomponent,

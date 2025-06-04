@@ -14,6 +14,7 @@ Rule Surfaces
 """
 
 # just a card that takes in the type of 
+
 class cardTwo:
     figure: any
     active: bool

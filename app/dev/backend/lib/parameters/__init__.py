@@ -4,7 +4,9 @@ from .soilMoistureToYield import SoilMoisture
 from .pestIncidentToYield import PestIncident
 from .spacingToYield import Spacing
 from .fertilizerToYield import Fertilizer
-# from .humidity import *
+from .suface_temp_smoist_yield import TSMYSurface
+from .suface_temp_humidity_yield import THYSurface
+from .timeSeriesToYield import TimeSeries
 from abc import ABCMeta, abstractmethod
 """
 Interface to be used by all parameters

@@ -5,7 +5,7 @@ Entry to the parameters in the library
 
 Model can trigger the parameters which in turn update the screen with graphs data
 """
-from dev.backend.lib.parameters import Temperature, Humidity, SoilMoisture, PestIncident, Spacing, Fertilizer
+from dev.backend.lib.parameters import Temperature, Humidity, SoilMoisture, PestIncident, Spacing, Fertilizer, TSMYSurface, THYSurface, TimeSeries
 
 
 class FuzzyModel:
@@ -19,13 +19,17 @@ class FuzzyModel:
             return self.catchException(self.payload)
         else: 
             return [
-                "time-series",
+                # replace 1st Humidity with time series 
+                TimeSeries(self.payload, tune_data=self.tunable).inference(),
+                # Humidity(self.payload, tune_humidity=self.tunable).inference(),
                 Humidity(self.payload, tune_humidity=self.tunable).inference(),
                 Temperature(self.payload, tune_temp=self.tunable).inference(),
                 SoilMoisture(self.payload, tune_smoisture=self.tunable).inference(),
                 PestIncident(self.payload, tune_pinsident=self.tunable).inference(),
                 Spacing(self.payload, tune_spacing=self.tunable).inference(),
                 Fertilizer(self.payload, tune_fertilizer=self.tunable).inference(),
+                TSMYSurface("").inference(),
+                THYSurface("").inference(),
                 ]
     
     def catchException(self, payload):

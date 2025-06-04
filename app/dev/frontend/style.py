@@ -10,7 +10,8 @@ style = {
 
 
 layoutStyle = {
-    'backgroundColor': '#3c6454',
+    'background': '#A60042',
+    'background': 'linear-gradient(164deg,rgba(53, 70, 74, 1) 0%, rgba(123, 212, 160, 1) 50%, rgba(166, 0, 66, 1) 100%)',
     "display": "flex",
     "flexDirection": "row",
     "miWidth": "50%",
@@ -48,6 +49,7 @@ componentSectionStyle = {
         "height": "fit-content",
         "flexDirection": 'column',
         "margin": "4px",
+        
         
 }
 
@@ -123,8 +125,83 @@ defaultCardStyle = {
 sectionThreeStyle.update(componentSectionStyle)
 
 
+# onboard page
 
-centerGridStyle = {
-    
+onboard = {
+    "display": "grid",
+    "gridTemplateColumns": "15% auto",
+    "gap": "4px",
+    "background-image": "url('/assets/img/fuzzy-assistance.jpg')",
+    # "background-repeat": "no-repeat",
+    "background-position": "center",
+    "background-size": "contain",
+    "width": "100%",
+    "object-fit": "fill",
+    "height": "100vh"
 }
-# __all__ = ["style"]
+
+onboard_nav = {
+    "display": "flex",
+    "justifyContent": "space-around",
+    "margin": "1px",
+    # "border": "solid #102542 2px",
+    "backgroundColor": "rgba(24, 23, 23, 0.41)",
+    "borderRadius": "4px",
+    "flexDirection": "column",
+    "color": "white",
+    "padding": "12px",
+    "-webkit-backdrop-filter": "blur(5px)",
+    "backdrop-filter": "blur(5px)"
+}
+
+onboard_nav_items = {
+    # "height": "35vh",
+    # "border": "solid grey 2px",
+    "borderRadius": "3px"
+}
+
+
+onboard_section = {
+    "margin": "1px",
+    "border": "solid black 2px",
+    "height": "100vh",
+    "display": "flex",
+    "align-items": "center",
+    "justify-content": "center",
+    "overflowY": "scroll",
+    "backgroundColor": "rgba(43, 43, 43, 0.82)",
+    "-webkit-backdrop-filter": "blur(5px)",
+    "backdrop-filter": "blur(5px)"
+}
+
+
+onboard_content = {
+    # "backgroundColor": "rgba(24, 23, 23, 0.65)",
+    # "-webkit-backdrop-filter": "blur(5px)",
+    # "backdrop-filter": "blur(5px)",
+    "padding": "30px",
+    "color": "white",
+    # "border-radius": "5px",
+    # "border": "2px solid white"
+
+}
+
+onboard_tab_styling = {
+    "display": "flex",
+    "flexDirection": "column"
+}
+
+onboard_tab_item_style = {
+    "width": "auto",
+    "margin": "1px",
+    "color": "black"
+}
+
+tab_selected_style = {
+    'borderTop': '1px solid #32E476',
+    'borderBottom': '1px solid #32E476',
+    'backgroundColor': 'black',
+    'color': 'white',
+    'padding': '6px',
+    "width": "auto"
+}

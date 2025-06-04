@@ -3,6 +3,7 @@ from dev.frontend.style import standardTopWidget, widgetLayout, defaultCardStyle
 from dash import html, dcc
 import plotly.express as px
 import pandas as pd
+import numpy as np
 # from dev.backend.lib.parameters.inference.universal_discourse import temperatureAxis
 
 
@@ -65,31 +66,34 @@ figureObject = MetricAnalyzier()
 class cardOne:
     figure: any
     active: bool
-    def __init__(self, figure=None, active=False) -> None:
+    def __init__(self, message:str|bool = False,  figure=None, active=False) -> None:
         self.figure = figure
         self.active = active
+        self.message = message
 
 
 
 
     def output(self):
-        defaultData = []
+        defaultData = np.arange(0, 1, 1)
+        
+        emptyFigure = px.line(x=defaultData, y=defaultData)
+        emptyFigure.update_layout(
+            width=10,
+            autosize=True,
+        )
 
         figure = dcc.Graph(
-        # id='basic-interactions',
-            figure={
-                "data": self.figure if self.active else defaultData,
-                # 'layout': widgetLayout
-                },
+            figure=self.figure if self.figure else emptyFigure,
             style=figureStyle
             )
 
-
+        screenOutput = self.message if self.message else figure
         return html.Div([
                 html.Div(
                 style=standardTopWidget,
                 children=[
-                    figure
+                    screenOutput
                 ]
                     )
                         ]
