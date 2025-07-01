@@ -1,0 +1,15 @@
+{
+  "name": "fuzzysys",
+  "version": "1.0.0",
+  "description": "a fuzzy base system for tomatoe production",
+  "license": "ISC",
+  "author": "oluwafemi",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "pake-cli": "^3.1.1"
+  }
+}

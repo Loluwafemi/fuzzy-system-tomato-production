@@ -24,10 +24,11 @@ def display_page(pathname):
 
 # render first page here
 if __name__ == '__main__':
-    app.run(
-        debug=True, 
-        dev_tools_hot_reload=True, 
-        dev_tools_hot_reload_interval=True, 
-        dev_tools_ui=False
-        )
+    app.run(debug=False, host='0.0.0.0', port=8050)
+    # app.run(
+    #     debug=True, 
+    #     dev_tools_hot_reload=True, 
+    #     dev_tools_hot_reload_interval=True, 
+    #     dev_tools_ui=False
+    #     )
     
